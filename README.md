@@ -33,6 +33,21 @@ For building for cross platforms, see ```build.bat```
 
 ## Usage
 
+### Folder Structure
+
+Put the launcher binary inside the arozos source root (aka the src folder) with a executable binary next to it in the same directory, and start the launcher with the start command.
+
+Here is an example folder structure that will launch correctly
+
+- web/
+- system/
+- arozos_linux_amd64
+- launcher
+
+
+
+### Start Command
+
 All parameter passed to the launcher will be passed to the arozos binary which the launcher will pick from wildcard arozos_* or ./arozos (or arozos.exe if you are running it on windows).  Example:
 
 ```
