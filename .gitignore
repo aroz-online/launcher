@@ -10,6 +10,21 @@
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
+launcher_*_*
+launcher.exe
+
+# Automatic Scripts
+prepare_update_files.sh
+reset_test_env.sh
+autopush.bat
+
+# Test files
+files/*
+arozos.old/*
+subservice/*
+system/*
+web/*
+arozos_*_*
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
