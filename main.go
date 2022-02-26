@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"time"
 )
 
@@ -48,6 +49,7 @@ func main() {
 
 	//Register the binary start path
 	cmd := exec.Command(binaryName, os.Args[1:]...)
+	cmd.Dir = filepath.Dir(binaryName)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 
