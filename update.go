@@ -20,12 +20,27 @@ func updateIfExists(binaryName string) {
 			fmt.Println("[LAUNCHER] Starting system backup process (to ./arozos.old)")
 			os.MkdirAll("./arozos.old", 0775)
 			copy(binaryName, filepath.Join("./arozos.old", filepath.Base(binaryName)))
+
+			//Backup the start.sh script and start.bat script if exists
+			if fileExists("./start.sh") {
+				copy("./start.sh", "./arozos.old/start.sh")
+			}
+
+			if fileExists("./start.bat") {
+				copy("./start.bat", "./arozos.old/start.bat")
+			}
+
+			//Backup the important system files
+			fmt.Println("[LAUNCHER] Backing up system files")
 			cp.Copy("./system", "./arozos.old/system/")
+
+			fmt.Println("[LAUNCHER] Backing up web server")
 			cp.Copy("./web", "./arozos.old/web/")
 
 			//Success. Continue binary replacement
 			fmt.Println("[LAUNCHER] Copying updates to runtime environment")
 			copy(newArozBinary, binaryName)
+
 			cp.Copy("./updates/system", "./system/")
 			cp.Copy("./updates/web", "./web/")
 

@@ -17,6 +17,14 @@ func restoreConfigs() {
 	restoreIfExists("system/cron.json")
 	restoreIfExists("system/storage.json")
 	restoreIfExists("web/SystemAO/vendor/")
+
+	//Restore start script
+	if fileExists("./arozos.old/start.sh") {
+		copy("./arozos.old/start.sh", "./start.sh")
+	}
+	if fileExists("./arozos.old/start.bat") {
+		copy("./arozos.old/start.bat", "./start.bat")
+	}
 }
 
 func restoreOldArozOS() {
