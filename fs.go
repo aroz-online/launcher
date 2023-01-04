@@ -83,9 +83,20 @@ func autoDetectExecutable() string {
 	if fileExists(binaryExecPath) {
 		return binaryExecPath
 	} else {
-		fmt.Println("[LAUNCHER] Unable to detect ArozOS start binary")
-		os.Exit(1)
-		return ""
+		//Binary not found. Try download it
+		err := downloadReleaseBinary()
+		if err != nil {
+			fmt.Println("[LAUNCHER] Unable to detect ArozOS start binary")
+			os.Exit(1)
+			return ""
+		}
+
+		if runtime.GOOS == "windows" {
+			return "arozos.exe"
+		} else {
+			return "arozos"
+		}
+
 	}
 }
 
