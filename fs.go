@@ -60,7 +60,7 @@ func restoreIfExists(fileRelPath string) {
 	}
 }
 
-//Auto detect and execute the correct binary
+// Auto detect and execute the correct binary
 func autoDetectExecutable() string {
 	if runtime.GOOS == "windows" {
 		if fileExists("arozos.exe") {
@@ -94,7 +94,7 @@ func autoDetectExecutable() string {
 		if runtime.GOOS == "windows" {
 			return "arozos.exe"
 		} else {
-			return "arozos"
+			return "./arozos"
 		}
 
 	}

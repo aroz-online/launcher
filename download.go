@@ -41,6 +41,7 @@ func downloadReleaseBinary() error {
 	}
 
 	fmt.Println("[LAUNCHER] Downloading arozos release binary from: " + src + binaryTag)
+	//Download binary
 	err = downloadFile(binaryName, src+binaryTag)
 	if err != nil {
 		fmt.Println("[LAUNCHER] Trying to download binary from release page but failed: ", err.Error())
@@ -53,6 +54,15 @@ func downloadReleaseBinary() error {
 	if err != nil {
 		fmt.Println("[LAUNCHER] Trying to download binary from release page but failed: ", err.Error())
 		return err
+	}
+
+	if runtime.GOOS != "windows" {
+		//Set binary permission to 775 for executing
+		err = os.Chmod("arozos", 0775)
+		if err != nil {
+			fmt.Println("[LAUNCHER] Unable to set permission for downloaded binary: ", err.Error())
+			return err
+		}
 	}
 
 	return nil

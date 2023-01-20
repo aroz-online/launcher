@@ -33,15 +33,32 @@ For building for cross platforms, see ```build.bat```
 
 ## Usage
 
-### Folder Structure
+### Automatic Net Install (for fresh installation)
 
-Put the launcher binary inside the arozos source root (aka the src folder) with a executable binary next to it in the same directory, and start the launcher with the start command.
+(This feature is only added since Launcher v1.3 (for ArozOS v2.011))
+
+If you have a clean Linux installation and want to install ArozOS from Github Release, you can use the following command to download and start the launcher. The launcher will download the release of ArozOS from Github and start it for you.
+
+Here is an example for using the Launcher net install function
+
+```bash
+wget https://github.com/aroz-online/launcher/releases/download/v2.010/launcher_linux_arm64
+mv launcher_linux_arm64 launcher
+sudo chmod 775 ./launcher
+./launcher
+```
+
+*Depending on your network speed, the web.tar.gz download might take some time, sometime up to 8+ minutes on low end SBCs.*
+
+### Folder Structure (for adding OTA Update to existing ArozOS systems)
+
+Put the launcher binary inside the arozos source root (the src folder if you are cloning from Github repo) with a executable binary next to it in the same directory, and start the launcher with the start command.
 
 Here is an example folder structure that will launch correctly
 
 - web/
 - system/
-- arozos_linux_amd64
+- arozos
 - launcher
 
 
