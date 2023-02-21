@@ -19,7 +19,7 @@ import (
 */
 
 const (
-	launcherVersion   = "1.3"
+	launcherVersion   = "2.011"
 	restoreRetryCount = 3 //The number of retry before restore old version, if not working after restoreRetryCount + 1 launcher will exit
 )
 
