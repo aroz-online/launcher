@@ -76,9 +76,9 @@ func autoDetectExecutable() string {
 	binaryExecPath := "arozos_" + runtime.GOOS + "_" + runtime.GOARCH
 	if runtime.GOOS == "windows" {
 		binaryExecPath += ".exe"
-	} else {
-		binaryExecPath = "./" + binaryExecPath
 	}
+
+	binaryExecPath = "./" + binaryExecPath
 
 	if fileExists(binaryExecPath) {
 		return binaryExecPath
@@ -92,7 +92,7 @@ func autoDetectExecutable() string {
 		}
 
 		if runtime.GOOS == "windows" {
-			return "arozos.exe"
+			return "./arozos.exe"
 		} else {
 			return "./arozos"
 		}
